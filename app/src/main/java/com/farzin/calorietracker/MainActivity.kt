@@ -11,7 +11,9 @@ import com.farzin.calorietracker.navigation.navigate
 import com.farzin.calorietracker.ui.theme.CalorieTrackerTheme
 import com.farzin.core.navigation.Route
 import com.farzin.onboarding_presentation.welcome.WelcomeScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
