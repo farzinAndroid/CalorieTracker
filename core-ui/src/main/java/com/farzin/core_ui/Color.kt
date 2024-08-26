@@ -4,7 +4,7 @@ import androidx.compose.material3.ColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-val ColorScheme.brightGreen: Color
+val ColorScheme.BrightGreen: Color
     @Composable
     get() = Color(0xFF00C713)
 

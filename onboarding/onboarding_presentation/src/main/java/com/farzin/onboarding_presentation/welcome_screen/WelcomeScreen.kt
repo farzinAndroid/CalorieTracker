@@ -1,4 +1,4 @@
-package com.farzin.onboarding_presentation.welcome
+package com.farzin.onboarding_presentation.welcome_screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -42,7 +42,7 @@ fun WelcomeScreen(
 
         ActionButton(
             text = stringResource(R.string.next),
-            onClick = { onNavigate.invoke(UIEvent.Navigate(Route.AGE)) },
+            onClick = { onNavigate.invoke(UIEvent.Navigate(Route.GENDER)) },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
 

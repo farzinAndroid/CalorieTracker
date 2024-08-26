@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.farzin.core_ui.LocalSpacing
-import com.farzin.core_ui.brightGreen
+import com.farzin.core_ui.BrightGreen
 
 @Composable
 fun ActionButton(
@@ -29,7 +29,7 @@ fun ActionButton(
         enabled = isEnabled,
         shape = RoundedCornerShape(100.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.brightGreen
+            containerColor = MaterialTheme.colorScheme.BrightGreen
         ),
         content = {
             Text(

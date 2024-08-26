@@ -1,6 +1,6 @@
 package com.farzin.calorietracker.di
 
-import android.app.Application
+import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.farzin.core.data.preferences.DefaultPreferences
@@ -20,7 +20,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideSharedPreferences(
-        @ApplicationContext app: Application
+        @ApplicationContext app: Context
     ) : SharedPreferences{
         return app.getSharedPreferences("shared_pref",MODE_PRIVATE)
     }

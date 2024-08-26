@@ -3,14 +3,14 @@ package com.farzin.calorietracker
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.farzin.calorietracker.navigation.navigate
 import com.farzin.calorietracker.ui.theme.CalorieTrackerTheme
 import com.farzin.core.navigation.Route
-import com.farzin.onboarding_presentation.welcome.WelcomeScreen
+import com.farzin.onboarding_presentation.gender_screen.GenderScreen
+import com.farzin.onboarding_presentation.welcome_screen.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     }
 
                     composable(Route.GENDER){
-
+                        GenderScreen(onNavigate = navController::navigate)
                     }
 
                     composable(Route.HEIGHT){
