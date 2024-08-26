@@ -1,6 +1,21 @@
 package com.farzin.calorietracker.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+
+
+val BrightGreen = Color(0xFF00C713)
+val DarkGreen = Color(0xFF00790C)
+val Orange =  Color(0xFFFFAA00)
+val CarbColor = Color(0xFFEEFF00)
+val ProteinColor = Orange
+val FatColor = Color(0xFFF44336)
+val LightGray = Color(0xFF808080)
+val MediumGray = Color(0xFF404040)
+val DarkGray = Color(0xFF202020)
+val TextWhite = Color(0xFFEEEEEE)
 
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)

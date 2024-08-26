@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.farzin.onboarding_presentation"
+    namespace = "com.farzin.core_ui"
     compileSdk = 34
 
     defaultConfig {
@@ -49,9 +49,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":onboarding:onboarding_domain"))
-    implementation(project(":core"))
-    implementation(project(":core-ui"))
 
     
     implementation(libs.androidx.core.ktx)

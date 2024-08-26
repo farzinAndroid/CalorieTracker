@@ -54,6 +54,7 @@ android {
 dependencies {
 
     implementation(project(":core"))
+    implementation(project(":core-ui"))
     implementation(project(":tracker:tracker_presentation"))
     implementation(project(":tracker:tracker_data"))
     implementation(project(":tracker:tracker_domain"))
