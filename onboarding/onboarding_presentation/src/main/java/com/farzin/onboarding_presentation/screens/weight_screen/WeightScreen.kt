@@ -1,4 +1,4 @@
-package com.farzin.onboarding_presentation.weight_screen
+package com.farzin.onboarding_presentation.screens.weight_screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -63,7 +63,7 @@ fun WeightScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = stringResource(R.string.whats_your_height),
+                text = stringResource(R.string.whats_your_weight),
                 style = MaterialTheme.typography.displaySmall,
                 textAlign = TextAlign.Center,
                 modifier = Modifier

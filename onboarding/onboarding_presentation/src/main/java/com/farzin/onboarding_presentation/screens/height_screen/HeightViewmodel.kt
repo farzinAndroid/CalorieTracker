@@ -1,4 +1,4 @@
-package com.farzin.onboarding_presentation.height_screen
+package com.farzin.onboarding_presentation.screens.height_screen
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

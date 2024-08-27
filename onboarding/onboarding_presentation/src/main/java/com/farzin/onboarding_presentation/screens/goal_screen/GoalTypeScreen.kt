@@ -1,4 +1,4 @@
-package com.farzin.onboarding_presentation.gender_screen
+package com.farzin.onboarding_presentation.screens.goal_screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -22,7 +22,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.farzin.core.R
-import com.farzin.core.domain.model.Gender
+import com.farzin.core.domain.model.ActivityLevel
+import com.farzin.core.domain.model.GoalType
 import com.farzin.core.util.UIEvent
 import com.farzin.core_ui.DarkGreen
 import com.farzin.core_ui.LocalSpacing
@@ -31,13 +32,13 @@ import com.farzin.onboarding_presentation.components.SelectableButton
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
-fun GenderScreen(
+fun GoalTypeScreen(
     onNavigate: (UIEvent.Navigate) -> Unit,
-    genderViewmodel: GenderViewmodel = hiltViewModel(),
+    goalViewmodel: GoalViewmodel = hiltViewModel(),
 ) {
 
     LaunchedEffect(true) {
-        genderViewmodel.uiEvent.collectLatest {
+        goalViewmodel.uiEvent.collectLatest {
             when (it) {
                 is UIEvent.Navigate -> onNavigate(it)
                 else -> Unit
@@ -59,7 +60,7 @@ fun GenderScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = stringResource(R.string.whats_your_gender),
+                text = stringResource(R.string.lose_keep_or_gain_weight),
                 style = MaterialTheme.typography.displaySmall,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
@@ -70,22 +71,33 @@ fun GenderScreen(
 
             Row {
                 SelectableButton(
-                    text = stringResource(R.string.male),
-                    isSelected = genderViewmodel.selectedGender == Gender.Male,
+                    text = stringResource(R.string.lose),
+                    isSelected = goalViewmodel.selectedGoalType == GoalType.LoseWeight,
                     color = MaterialTheme.colorScheme.DarkGreen,
                     selectedTextColor = Color.White,
-                    onClick = { genderViewmodel.onGenderClicked(Gender.Male) },
+                    onClick = { goalViewmodel.onGoalTypeClicked(GoalType.LoseWeight) },
                     textStyle = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal)
                 )
 
                 Spacer(modifier = Modifier.width(LocalSpacing.current.medium))
 
                 SelectableButton(
-                    text = stringResource(R.string.female),
-                    isSelected = genderViewmodel.selectedGender == Gender.Female,
+                    text = stringResource(R.string.keep),
+                    isSelected = goalViewmodel.selectedGoalType == GoalType.KeepWeight,
                     color = MaterialTheme.colorScheme.DarkGreen,
                     selectedTextColor = Color.White,
-                    onClick = { genderViewmodel.onGenderClicked(Gender.Female) },
+                    onClick = { goalViewmodel.onGoalTypeClicked(GoalType.KeepWeight) },
+                    textStyle = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal)
+                )
+
+                Spacer(modifier = Modifier.width(LocalSpacing.current.medium))
+
+                SelectableButton(
+                    text = stringResource(R.string.gain),
+                    isSelected = goalViewmodel.selectedGoalType == GoalType.GainWeight,
+                    color = MaterialTheme.colorScheme.DarkGreen,
+                    selectedTextColor = Color.White,
+                    onClick = { goalViewmodel.onGoalTypeClicked(GoalType.GainWeight) },
                     textStyle = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal)
                 )
             }
@@ -97,7 +109,7 @@ fun GenderScreen(
             text = stringResource(
                 R.string.next
             ),
-            onClick = genderViewmodel::onNextClicked,
+            onClick = goalViewmodel::onNextClicked,
             modifier = Modifier
                 .align(Alignment.BottomEnd)
         )

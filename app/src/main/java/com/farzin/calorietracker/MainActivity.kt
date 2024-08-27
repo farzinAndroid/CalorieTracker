@@ -15,11 +15,13 @@ import androidx.navigation.compose.rememberNavController
 import com.farzin.calorietracker.navigation.navigate
 import com.farzin.calorietracker.ui.theme.CalorieTrackerTheme
 import com.farzin.core.navigation.Route
-import com.farzin.onboarding_presentation.age_screen.AgeScreen
-import com.farzin.onboarding_presentation.gender_screen.GenderScreen
-import com.farzin.onboarding_presentation.height_screen.HeightScreen
-import com.farzin.onboarding_presentation.weight_screen.WeightScreen
-import com.farzin.onboarding_presentation.welcome_screen.WelcomeScreen
+import com.farzin.onboarding_presentation.screens.activity_screen.ActivityLevelScreen
+import com.farzin.onboarding_presentation.screens.age_screen.AgeScreen
+import com.farzin.onboarding_presentation.screens.gender_screen.GenderScreen
+import com.farzin.onboarding_presentation.screens.goal_screen.GoalTypeScreen
+import com.farzin.onboarding_presentation.screens.height_screen.HeightScreen
+import com.farzin.onboarding_presentation.screens.weight_screen.WeightScreen
+import com.farzin.onboarding_presentation.screens.welcome_screen.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -75,11 +77,11 @@ class MainActivity : ComponentActivity() {
                             }
 
                             composable(Route.ACTIVITY) {
-
+                                ActivityLevelScreen(onNavigate = navController::navigate)
                             }
 
                             composable(Route.GOAL) {
-
+                                GoalTypeScreen(onNavigate = navController::navigate)
                             }
 
                             composable(Route.TRACKER_OVERVIEW) {

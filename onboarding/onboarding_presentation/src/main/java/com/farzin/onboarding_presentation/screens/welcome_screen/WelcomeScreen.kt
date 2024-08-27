@@ -1,4 +1,4 @@
-package com.farzin.onboarding_presentation.welcome_screen
+package com.farzin.onboarding_presentation.screens.welcome_screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
