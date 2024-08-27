@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.farzin.core.domain.preferences.Preferences
-import com.farzin.core.domain.use_case.FilterOutDigits
+import com.farzin.core.domain.use_case.FilterOutDigitsUseCase
 import com.farzin.core.util.UIEvent
 import com.farzin.core.util.UIText
 import com.farzin.core.R
@@ -20,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class WeightViewmodel @Inject constructor(
     private val preferences: Preferences,
-    private val filterOutDigits: FilterOutDigits
+    private val filterOutDigitsUseCase: FilterOutDigitsUseCase
 ) : ViewModel() {
 
     var weight by mutableStateOf("80.0")

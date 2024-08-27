@@ -5,7 +5,8 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.farzin.core.data.preferences.DefaultPreferences
 import com.farzin.core.domain.preferences.Preferences
-import com.farzin.core.domain.use_case.FilterOutDigits
+import com.farzin.core.domain.use_case.FilterOutDigitsUseCase
+import com.farzin.onboarding_domain.use_case.ValidateNutrientsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,6 +36,6 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFilterOutDigitsUseCase() = FilterOutDigits()
+    fun provideFilterOutDigitsUseCase() = FilterOutDigitsUseCase()
 
 }

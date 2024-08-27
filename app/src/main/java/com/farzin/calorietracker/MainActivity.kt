@@ -20,6 +20,7 @@ import com.farzin.onboarding_presentation.screens.age_screen.AgeScreen
 import com.farzin.onboarding_presentation.screens.gender_screen.GenderScreen
 import com.farzin.onboarding_presentation.screens.goal_screen.GoalTypeScreen
 import com.farzin.onboarding_presentation.screens.height_screen.HeightScreen
+import com.farzin.onboarding_presentation.screens.nutrient_goal_screen.NutrientGoalScreen
 import com.farzin.onboarding_presentation.screens.weight_screen.WeightScreen
 import com.farzin.onboarding_presentation.screens.welcome_screen.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -73,7 +74,7 @@ class MainActivity : ComponentActivity() {
                             }
 
                             composable(Route.NUTRIENT_GOAL) {
-
+                                NutrientGoalScreen(snackBarHost = snackBarHostState, onNavigate = navController::navigate)
                             }
 
                             composable(Route.ACTIVITY) {
