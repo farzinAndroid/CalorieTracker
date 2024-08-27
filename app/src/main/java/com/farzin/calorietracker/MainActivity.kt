@@ -17,6 +17,8 @@ import com.farzin.calorietracker.ui.theme.CalorieTrackerTheme
 import com.farzin.core.navigation.Route
 import com.farzin.onboarding_presentation.age_screen.AgeScreen
 import com.farzin.onboarding_presentation.gender_screen.GenderScreen
+import com.farzin.onboarding_presentation.height_screen.HeightScreen
+import com.farzin.onboarding_presentation.weight_screen.WeightScreen
 import com.farzin.onboarding_presentation.welcome_screen.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -55,7 +57,17 @@ class MainActivity : ComponentActivity() {
                             }
 
                             composable(Route.HEIGHT) {
+                                HeightScreen(
+                                    snackBarHost = snackBarHostState,
+                                    onNavigate = navController::navigate
+                                )
+                            }
 
+                            composable(Route.WEIGHT) {
+                                WeightScreen(
+                                    snackBarHost = snackBarHostState,
+                                    onNavigate = navController::navigate
+                                )
                             }
 
                             composable(Route.NUTRIENT_GOAL) {
