@@ -4,5 +4,6 @@ sealed class UIEvent {
 
     data class Navigate(val route: String) : UIEvent()
     data object NavigateUp : UIEvent()
+    data class ShowSnackBar(val message:UIText) : UIEvent()
 
 }

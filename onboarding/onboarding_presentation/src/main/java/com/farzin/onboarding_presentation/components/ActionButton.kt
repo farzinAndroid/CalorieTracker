@@ -12,6 +12,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.farzin.core_ui.LocalSpacing
 import com.farzin.core_ui.BrightGreen
+import com.farzin.core_ui.TextWhite
 
 @Composable
 fun ActionButton(
@@ -35,7 +36,7 @@ fun ActionButton(
             Text(
                 text = text,
                 style = textStyle,
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = MaterialTheme.colorScheme.TextWhite,
                 modifier = Modifier
                     .padding(LocalSpacing.current.small)
             )

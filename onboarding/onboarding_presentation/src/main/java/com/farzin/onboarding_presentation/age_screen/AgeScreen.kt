@@ -1,4 +1,4 @@
-package com.farzin.onboarding_presentation.gender_screen
+package com.farzin.onboarding_presentation.age_screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,12 +11,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -28,18 +30,27 @@ import com.farzin.core_ui.DarkGreen
 import com.farzin.core_ui.LocalSpacing
 import com.farzin.onboarding_presentation.components.ActionButton
 import com.farzin.onboarding_presentation.components.SelectableButton
+import com.farzin.onboarding_presentation.components.UnitTextField
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
-fun GenderScreen(
+fun AgeScreen(
+    ageViewmodel: AgeViewmodel = hiltViewModel(),
+    snackBarHost: SnackbarHostState,
     onNavigate: (UIEvent.Navigate) -> Unit,
-    genderViewmodel: GenderViewmodel = hiltViewModel(),
 ) {
 
+    val context = LocalContext.current
+
     LaunchedEffect(true) {
-        genderViewmodel.uiEvent.collectLatest {
+        ageViewmodel.uiEvent.collectLatest {
             when (it) {
                 is UIEvent.Navigate -> onNavigate(it)
+                is UIEvent.ShowSnackBar->{
+                    snackBarHost.showSnackbar(
+                        message = it.message.asString(context),
+                    )
+                }
                 else -> Unit
             }
         }
@@ -59,7 +70,7 @@ fun GenderScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = stringResource(R.string.whats_your_gender),
+                text = stringResource(R.string.whats_your_age),
                 style = MaterialTheme.typography.displaySmall,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
@@ -68,27 +79,12 @@ fun GenderScreen(
 
             Spacer(modifier = Modifier.height(LocalSpacing.current.medium))
 
-            Row {
-                SelectableButton(
-                    text = stringResource(R.string.male),
-                    isSelected = genderViewmodel.selectedGender == Gender.Male,
-                    color = MaterialTheme.colorScheme.DarkGreen,
-                    selectedTextColor = Color.White,
-                    onClick = { genderViewmodel.onGenderClicked(Gender.Male) },
-                    textStyle = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal)
-                )
+            UnitTextField(
+                value = ageViewmodel.age,
+                onValueChanged = { ageViewmodel.onAgeEnter(it) },
+                unit = stringResource(R.string.years)
+            )
 
-                Spacer(modifier = Modifier.width(LocalSpacing.current.medium))
-
-                SelectableButton(
-                    text = stringResource(R.string.female),
-                    isSelected = genderViewmodel.selectedGender == Gender.Female,
-                    color = MaterialTheme.colorScheme.DarkGreen,
-                    selectedTextColor = Color.White,
-                    onClick = { genderViewmodel.onGenderClicked(Gender.Female) },
-                    textStyle = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal)
-                )
-            }
 
 
         }
@@ -97,7 +93,7 @@ fun GenderScreen(
             text = stringResource(
                 R.string.next
             ),
-            onClick = genderViewmodel::onNextClicked,
+            onClick = ageViewmodel::onNextClicked,
             modifier = Modifier
                 .align(Alignment.BottomEnd)
         )
