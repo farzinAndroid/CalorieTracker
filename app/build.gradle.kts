@@ -115,6 +115,7 @@ dependencies {
     // moshi
     ksp(libs.moshi.kotlin.codegen)
     implementation(libs.moshi)
+    implementation (libs.converter.moshi)
 
     // coroutine test
     implementation (libs.kotlinx.coroutines.test)

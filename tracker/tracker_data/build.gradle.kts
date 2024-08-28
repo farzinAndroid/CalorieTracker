@@ -61,10 +61,6 @@ dependencies {
 
 
 
-    // moshi
-    ksp(libs.moshi.kotlin.codegen)
-    implementation(libs.moshi)
-
     // coroutine test
     implementation (libs.kotlinx.coroutines.test)
 
@@ -89,10 +85,10 @@ dependencies {
 
     //retrofit
     implementation (libs.retrofit)
-    implementation (libs.converter.gson)
     implementation(libs.logging.interceptor)
 
     // moshi
     ksp(libs.moshi.kotlin.codegen)
     implementation(libs.moshi)
+    implementation (libs.converter.moshi)
 }
