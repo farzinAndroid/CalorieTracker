@@ -5,9 +5,10 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -90,10 +91,8 @@ fun NutrientBarInfo(
             }
         }
 
-        Box(
-            modifier = Modifier
-                .padding(bottom = LocalSpacing.current.medium),
-            contentAlignment = Alignment.Center
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             UnitDisplay(
                 modifier = Modifier.wrapContentSize(),
@@ -102,17 +101,15 @@ fun NutrientBarInfo(
                 amountColor = if (value <= goal) MaterialTheme.colorScheme.TextWhite else goalExceededColor,
                 unitTextColor = if (value <= goal) MaterialTheme.colorScheme.TextWhite else goalExceededColor
             )
-        }
 
+            Spacer(modifier = Modifier.height(LocalSpacing.current.extraSmall))
             Text(
                 text = name,
                 color = if (value <= goal) MaterialTheme.colorScheme.TextWhite else goalExceededColor,
                 style = MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.Light,
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(bottom = LocalSpacing.current.medium)
             )
+        }
     }
 
 
