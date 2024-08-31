@@ -23,6 +23,7 @@ import com.farzin.onboarding_presentation.screens.height_screen.HeightScreen
 import com.farzin.onboarding_presentation.screens.nutrient_goal_screen.NutrientGoalScreen
 import com.farzin.onboarding_presentation.screens.weight_screen.WeightScreen
 import com.farzin.onboarding_presentation.screens.welcome_screen.WelcomeScreen
+import com.farzin.tracker_presentation.screens.tracker_overview_screen.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -86,7 +87,7 @@ class MainActivity : ComponentActivity() {
                             }
 
                             composable(Route.TRACKER_OVERVIEW) {
-
+                                TrackerOverviewScreen(onNavigate = navController::navigate)
                             }
 
                             composable(Route.SEARCH) {

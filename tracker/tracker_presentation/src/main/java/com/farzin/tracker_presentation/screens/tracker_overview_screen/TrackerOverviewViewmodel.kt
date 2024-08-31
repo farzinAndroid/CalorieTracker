@@ -1,11 +1,10 @@
-package com.farzin.tracker_presentation.tracker_overview
+package com.farzin.tracker_presentation.screens.tracker_overview_screen
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.farzin.core.domain.preferences.Preferences
 import com.farzin.core.navigation.Route
 import com.farzin.core.util.UIEvent
@@ -38,7 +37,7 @@ class TrackerOverviewViewmodel @Inject constructor(
     private val _uiEvent = Channel<UIEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-    fun onEvent(event:TrackerOverviewUIEvents){
+    fun onEvent(event: TrackerOverviewUIEvents){
         when(event){
             is TrackerOverviewUIEvents.OnAddFoodClicked -> {
                 viewModelScope.launch {

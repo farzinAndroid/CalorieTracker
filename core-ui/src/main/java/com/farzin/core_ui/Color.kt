@@ -43,3 +43,8 @@ val ColorScheme.DarkGray: Color
 val ColorScheme.TextWhite: Color
     @Composable
     get() = Color(0xFFEEEEEE)
+
+
+val ColorScheme.BarBackGround: Color
+    @Composable
+    get() = Color(0xFFFFFFFF)
