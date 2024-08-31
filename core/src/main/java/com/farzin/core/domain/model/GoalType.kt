@@ -11,8 +11,8 @@ sealed class GoalType(val name: String) {
         fun fromString(name: String): GoalType {
             return when (name) {
                 "lose_weight" -> LoseWeight
-                "gain_weight" -> GainWeight
                 "keep_weight" -> KeepWeight
+                "gain_weight" -> GainWeight
                 else->KeepWeight
             }
         }

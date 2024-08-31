@@ -30,7 +30,7 @@ import com.farzin.core_ui.TextWhite
 import com.farzin.tracker_presentation.components.UnitDisplay
 
 @Composable
-fun NutrientsHeader(
+fun NutrientsHeaderSection(
     modifier: Modifier = Modifier,
     state: TrackerOverviewState,
 ) {

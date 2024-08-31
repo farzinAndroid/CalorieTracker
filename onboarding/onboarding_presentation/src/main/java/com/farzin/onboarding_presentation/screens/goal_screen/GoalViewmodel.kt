@@ -21,7 +21,7 @@ class GoalViewmodel @Inject constructor(
     private val preferences: Preferences
 ) : ViewModel() {
 
-    var selectedGoalType by mutableStateOf<GoalType>(GoalType.LoseWeight)
+    var selectedGoalType by mutableStateOf<GoalType>(GoalType.KeepWeight)
         private set
 
 

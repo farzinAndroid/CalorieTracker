@@ -1,6 +1,9 @@
 package com.farzin.tracker_presentation.screens.tracker_overview_screen
 
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
@@ -26,7 +29,22 @@ fun TrackerOverviewScreen(
             .padding(bottom = LocalSpacing.current.medium)
     ) {
         item {
-            NutrientsHeader(state = state)
+            NutrientsHeaderSection(state = state)
+        }
+
+        item {
+            Spacer(modifier = Modifier.height(LocalSpacing.current.medium))
+
+            DaySelectorSection(
+                date = state.date,
+                onPrevDayClicked = { viewmodel.onEvent(TrackerOverviewUIEvents.OnPreviousDayClicked) },
+                onNextDayClicked = { viewmodel.onEvent(TrackerOverviewUIEvents.OnNextDayClicked) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = LocalSpacing.current.medium)
+            )
+
+            Spacer(modifier = Modifier.height(LocalSpacing.current.medium))
         }
     }
 

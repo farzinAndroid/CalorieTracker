@@ -44,6 +44,10 @@ val ColorScheme.TextWhite: Color
     @Composable
     get() = Color(0xFFEEEEEE)
 
+val ColorScheme.TextBlack: Color
+    @Composable
+    get() = Color(0xFF000000)
+
 
 val ColorScheme.BarBackGround: Color
     @Composable
