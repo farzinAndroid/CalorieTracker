@@ -74,6 +74,17 @@ class DefaultPreferences @Inject constructor(
             .apply()
     }
 
+    override fun saveShouldShowOnBoarding(value: Boolean) {
+        sharedPreferences
+            .edit()
+            .putBoolean(Preferences.KEY_SHOULD_SHOW_ON_BOARDING, value)
+            .apply()
+    }
+
+    override fun loadShouldShowOnBoarding() : Boolean {
+        return sharedPreferences.getBoolean(Preferences.KEY_SHOULD_SHOW_ON_BOARDING,true)
+    }
+
     override fun loadUserInfo(): UserInfo {
         val age = sharedPreferences.getInt(Preferences.KEY_AGE, -1)
         val weight = sharedPreferences.getFloat(Preferences.KEY_WEIGHT, -1f)

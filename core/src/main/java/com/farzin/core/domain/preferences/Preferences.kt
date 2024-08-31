@@ -17,6 +17,10 @@ interface Preferences {
     fun saveProteinRatio(ratio:Float)
     fun saveFatRatio(ratio:Float)
 
+
+    fun saveShouldShowOnBoarding(value:Boolean)
+    fun loadShouldShowOnBoarding() : Boolean
+
     fun loadUserInfo() : UserInfo
 
     companion object{
@@ -29,6 +33,7 @@ interface Preferences {
         const val KEY_CARB_RATIO = "KEY_CARB_RATIO"
         const val KEY_PROTEIN_RATIO = "KEY_PROTEIN_RATIO"
         const val KEY_FAT_RATIO = "KEY_FAT_RATIO"
+        const val KEY_SHOULD_SHOW_ON_BOARDING = "KEY_SHOULD_SHOW_ON_BOARDING"
     }
 
 }
