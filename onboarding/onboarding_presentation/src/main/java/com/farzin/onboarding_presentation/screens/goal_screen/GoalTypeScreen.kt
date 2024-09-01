@@ -22,7 +22,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.farzin.core.R
-import com.farzin.core.domain.model.ActivityLevel
 import com.farzin.core.domain.model.GoalType
 import com.farzin.core.util.UIEvent
 import com.farzin.core_ui.DarkGreen
@@ -33,14 +32,14 @@ import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun GoalTypeScreen(
-    onNavigate: (UIEvent.Navigate) -> Unit,
+    onNextClicked: () -> Unit,
     goalViewmodel: GoalViewmodel = hiltViewModel(),
 ) {
 
     LaunchedEffect(true) {
         goalViewmodel.uiEvent.collectLatest {
             when (it) {
-                is UIEvent.Navigate -> onNavigate(it)
+                is UIEvent.Success -> onNextClicked()
                 else -> Unit
             }
         }

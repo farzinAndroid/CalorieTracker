@@ -32,14 +32,14 @@ import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun GenderScreen(
-    onNavigate: (UIEvent.Navigate) -> Unit,
+    onNextClicked: () -> Unit,
     genderViewmodel: GenderViewmodel = hiltViewModel(),
 ) {
 
     LaunchedEffect(true) {
         genderViewmodel.uiEvent.collectLatest {
             when (it) {
-                is UIEvent.Navigate -> onNavigate(it)
+                is UIEvent.Success -> onNextClicked()
                 else -> Unit
             }
         }

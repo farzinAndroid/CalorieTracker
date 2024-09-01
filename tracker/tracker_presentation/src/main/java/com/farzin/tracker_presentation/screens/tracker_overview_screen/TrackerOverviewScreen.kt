@@ -21,22 +21,12 @@ import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun TrackerOverviewScreen(
-    onNavigate: (UIEvent.Navigate) -> Unit,
+    onNavigateToSearch: (String,Int,Int,Int) -> Unit,
     viewmodel: TrackerOverviewViewmodel = hiltViewModel(),
 ) {
 
     val state = viewmodel.state
     val context = LocalContext.current
-
-
-    LaunchedEffect(true) {
-        viewmodel.uiEvent.collectLatest {
-            when(it){
-                is UIEvent.Navigate -> onNavigate(it)
-                else->{}
-            }
-        }
-    }
 
     LazyColumn(
         modifier = Modifier
@@ -97,10 +87,11 @@ fun TrackerOverviewScreen(
                                 meal.name.asString(context)
                             ),
                             onClick = {
-                                viewmodel.onEvent(
-                                    TrackerOverviewUIEvents.OnAddFoodClicked(
-                                        meal
-                                    )
+                                onNavigateToSearch(
+                                    meal.name.asString(context),
+                                    state.date.dayOfMonth,
+                                    state.date.monthValue,
+                                    state.date.year
                                 )
                             },
                             modifier = Modifier.fillMaxWidth()

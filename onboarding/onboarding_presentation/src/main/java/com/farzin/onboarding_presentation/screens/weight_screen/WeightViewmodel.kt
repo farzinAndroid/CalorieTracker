@@ -10,7 +10,6 @@ import com.farzin.core.domain.use_case.FilterOutDigitsUseCase
 import com.farzin.core.util.UIEvent
 import com.farzin.core.util.UIText
 import com.farzin.core.R
-import com.farzin.core.navigation.Route
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -45,7 +44,7 @@ class WeightViewmodel @Inject constructor(
                 return@launch
             }
             preferences.saveWeight(weightNum)
-            _uiEvent.send(UIEvent.Navigate(Route.ACTIVITY))
+            _uiEvent.send(UIEvent.Success)
         }
     }
 

@@ -23,7 +23,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.farzin.core.R
 import com.farzin.core.domain.model.ActivityLevel
-import com.farzin.core.domain.model.Gender
 import com.farzin.core.util.UIEvent
 import com.farzin.core_ui.DarkGreen
 import com.farzin.core_ui.LocalSpacing
@@ -33,14 +32,14 @@ import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun ActivityLevelScreen(
-    onNavigate: (UIEvent.Navigate) -> Unit,
+    onNextClicked: () -> Unit,
     activityLevelViewmodel: ActivityLevelViewmodel = hiltViewModel(),
 ) {
 
     LaunchedEffect(true) {
         activityLevelViewmodel.uiEvent.collectLatest {
             when (it) {
-                is UIEvent.Navigate -> onNavigate(it)
+                is UIEvent.Success -> onNextClicked()
                 else -> Unit
             }
         }

@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.farzin.core.domain.preferences.Preferences
-import com.farzin.core.navigation.Route
 import com.farzin.core.util.UIEvent
 import com.farzin.tracker_domain.model.TrackedFood
 import com.farzin.tracker_domain.use_case.TrackerUseCasesWrapperClass
@@ -40,19 +39,6 @@ class TrackerOverviewViewmodel @Inject constructor(
 
     fun onEvent(event: TrackerOverviewUIEvents){
         when(event){
-            is TrackerOverviewUIEvents.OnAddFoodClicked -> {
-                viewModelScope.launch {
-                    _uiEvent.send(
-                        UIEvent.Navigate(
-                            route = Route.SEARCH +
-                                    "/${event.meal.mealType.name}"+
-                                    "/${state.date.dayOfMonth}"+
-                                    "/${state.date.monthValue}"+
-                                    "/${state.date.year}"
-                        )
-                    )
-                }
-            }
             is TrackerOverviewUIEvents.OnDeleteTrackedFoodClicked -> {
                 viewModelScope.launch {
                     trackerUseCasesWrapperClass.deleteTrackFoodUseCase.invoke(event.trackedFood)

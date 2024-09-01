@@ -1,4 +1,4 @@
-package com.farzin.core.navigation
+package com.farzin.calorietracker.navigation
 
 object Route {
 

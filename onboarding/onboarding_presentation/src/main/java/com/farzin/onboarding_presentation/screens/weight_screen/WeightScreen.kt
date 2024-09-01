@@ -30,7 +30,7 @@ import kotlinx.coroutines.flow.collectLatest
 fun WeightScreen(
     weightViewmodel: WeightViewmodel = hiltViewModel(),
     snackBarHost: SnackbarHostState,
-    onNavigate: (UIEvent.Navigate) -> Unit,
+    onNextClicked: () -> Unit,
 ) {
 
     val context = LocalContext.current
@@ -38,7 +38,7 @@ fun WeightScreen(
     LaunchedEffect(true) {
         weightViewmodel.uiEvent.collectLatest {
             when (it) {
-                is UIEvent.Navigate -> onNavigate(it)
+                is UIEvent.Success -> onNextClicked()
                 is UIEvent.ShowSnackBar->{
                     snackBarHost.showSnackbar(
                         message = it.message.asString(context),

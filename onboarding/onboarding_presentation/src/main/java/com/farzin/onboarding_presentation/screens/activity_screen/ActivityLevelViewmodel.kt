@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.farzin.core.domain.model.ActivityLevel
 import com.farzin.core.domain.preferences.Preferences
-import com.farzin.core.navigation.Route
 import com.farzin.core.util.UIEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -34,7 +33,7 @@ class ActivityLevelViewmodel @Inject constructor(
     fun onNextClicked(){
         viewModelScope.launch {
             preferences.saveActivityLevel(selectedActivityLevel)
-            _uiEvent.send(UIEvent.Navigate(Route.GOAL))
+            _uiEvent.send(UIEvent.Success)
         }
     }
 

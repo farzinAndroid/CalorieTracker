@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.farzin.core.domain.preferences.Preferences
 import com.farzin.core.domain.use_case.FilterOutDigitsUseCase
-import com.farzin.core.navigation.Route
 import com.farzin.core.util.UIEvent
 import com.farzin.onboarding_domain.use_case.ValidateNutrientsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -54,7 +53,7 @@ class NutrientGoalViewmodel @Inject constructor(
                         preferences.saveCarbRatio(result.carbsRatio)
                         preferences.saveFatRatio(result.fatRatio)
                         viewModelScope.launch {
-                            _uiEvent.send(UIEvent.Navigate(Route.TRACKER_OVERVIEW))
+                            _uiEvent.send(UIEvent.Success)
                         }
                     }
                     is ValidateNutrientsUseCase.Result.Error -> {

@@ -14,14 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.farzin.core.R
-import com.farzin.core.navigation.Route
-import com.farzin.core.util.UIEvent
 import com.farzin.core_ui.LocalSpacing
 import com.farzin.onboarding_presentation.components.ActionButton
 
 @Composable
 fun WelcomeScreen(
-    onNavigate: (UIEvent.Navigate) -> Unit,
+    onNextClicked: () -> Unit,
 ) {
 
     Column(
@@ -42,7 +40,7 @@ fun WelcomeScreen(
 
         ActionButton(
             text = stringResource(R.string.next),
-            onClick = { onNavigate.invoke(UIEvent.Navigate(Route.GENDER)) },
+            onClick = { onNextClicked.invoke() },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
 
