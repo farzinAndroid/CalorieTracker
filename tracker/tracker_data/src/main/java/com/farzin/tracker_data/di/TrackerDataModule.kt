@@ -18,6 +18,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 
@@ -28,6 +29,9 @@ object TrackerDataModule {
     @Provides
     @Singleton
     fun provideOkHttpClient() = OkHttpClient.Builder()
+        .readTimeout(60L,TimeUnit.SECONDS)
+        .writeTimeout(60L,TimeUnit.SECONDS)
+        .connectTimeout(60L,TimeUnit.SECONDS)
         .addInterceptor(
             HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
