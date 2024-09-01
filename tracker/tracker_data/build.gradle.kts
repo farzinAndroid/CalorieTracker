@@ -86,6 +86,7 @@ dependencies {
     //retrofit
     implementation (libs.retrofit)
     implementation(libs.logging.interceptor)
+    implementation(libs.converter.gson)
 
     // moshi
     ksp(libs.moshi.kotlin.codegen)

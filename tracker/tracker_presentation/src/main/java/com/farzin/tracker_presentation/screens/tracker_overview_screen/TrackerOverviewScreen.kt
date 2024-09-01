@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -16,6 +17,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.farzin.core.R
 import com.farzin.core.util.UIEvent
 import com.farzin.core_ui.LocalSpacing
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun TrackerOverviewScreen(
@@ -26,6 +28,15 @@ fun TrackerOverviewScreen(
     val state = viewmodel.state
     val context = LocalContext.current
 
+
+    LaunchedEffect(true) {
+        viewmodel.uiEvent.collectLatest {
+            when(it){
+                is UIEvent.Navigate -> onNavigate(it)
+                else->{}
+            }
+        }
+    }
 
     LazyColumn(
         modifier = Modifier

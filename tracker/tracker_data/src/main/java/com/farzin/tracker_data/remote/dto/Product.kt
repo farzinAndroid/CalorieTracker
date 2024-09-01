@@ -1,11 +1,8 @@
 package com.farzin.tracker_data.remote.dto
 
-import com.squareup.moshi.Json
 
 data class Product(
-    @field:Json(name = "image_front_thumb_url")
-    val imageFrontThumbUrl: String?,
+    val image_front_thumb_url: String?,
     val nutriments: Nutriments,
-    @field:Json(name = "product_name")
-    val productName: String?
+    val product_name: String?
 )
