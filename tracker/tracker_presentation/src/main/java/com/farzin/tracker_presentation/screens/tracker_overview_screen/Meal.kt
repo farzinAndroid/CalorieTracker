@@ -23,16 +23,15 @@ val defaultMeal = listOf(
         drawableRes = R.drawable.ic_breakfast,
         mealType = MealType.BreakFast
     ),
-
-    Meal(
-        name = UIText.StringResource(R.string.dinner),
-        drawableRes = R.drawable.ic_dinner,
-        mealType = MealType.Dinner
-    ),
     Meal(
         name = UIText.StringResource(R.string.lunch),
         drawableRes = R.drawable.ic_lunch,
         mealType = MealType.Lunch
+    ),
+    Meal(
+        name = UIText.StringResource(R.string.dinner),
+        drawableRes = R.drawable.ic_dinner,
+        mealType = MealType.Dinner
     ),
     Meal(
         name = UIText.StringResource(R.string.snacks),

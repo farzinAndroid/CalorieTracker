@@ -34,6 +34,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -123,7 +124,8 @@ fun TrackableFoodItem(
                     name = stringResource(R.string.carbs),
                     amountTextSize = 16.sp,
                     unitTextSize = 12.sp,
-                    nameTextStyle = MaterialTheme.typography.labelLarge
+                    nameTextStyle = MaterialTheme.typography.labelLarge,
+                    amountColor = MaterialTheme.colorScheme.DarkGray
                 )
 
                 NutrientInfo(
@@ -132,7 +134,8 @@ fun TrackableFoodItem(
                     name = stringResource(R.string.protein),
                     amountTextSize = 16.sp,
                     unitTextSize = 12.sp,
-                    nameTextStyle = MaterialTheme.typography.labelLarge
+                    nameTextStyle = MaterialTheme.typography.labelLarge,
+                    amountColor = MaterialTheme.colorScheme.DarkGray
                 )
 
                 NutrientInfo(
@@ -141,7 +144,8 @@ fun TrackableFoodItem(
                     name = stringResource(R.string.fat),
                     amountTextSize = 16.sp,
                     unitTextSize = 12.sp,
-                    nameTextStyle = MaterialTheme.typography.labelLarge
+                    nameTextStyle = MaterialTheme.typography.labelLarge,
+                    amountColor = MaterialTheme.colorScheme.DarkGray
                 )
 
 
@@ -165,7 +169,8 @@ fun TrackableFoodItem(
                                 ImeAction.Done
                             } else {
                                 ImeAction.Default
-                            }
+                            },
+                            keyboardType = KeyboardType.Number
                         ),
                         keyboardActions = KeyboardActions(
                             onDone = {

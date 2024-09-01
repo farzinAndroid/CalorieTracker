@@ -15,6 +15,7 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.key
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -82,10 +83,14 @@ fun SearchScreen(
             onValueChanged = {
                 viewmodel.onEvent(SearchEvent.OnQueryChanged(it))
             },
-            onSearch = { viewmodel.onEvent(SearchEvent.OnSearch) },
+            onSearch = {
+                viewmodel.onEvent(SearchEvent.OnSearch)
+                keyboardController?.hide()
+            },
             onFocusChanged = {
                 viewmodel.onEvent(SearchEvent.OnSearchFocusChange(it.isFocused))
             },
+            shouldShowHint = state.isHintVisible
         )
 
         Spacer(modifier = Modifier.height(spacing.medium))
@@ -116,6 +121,7 @@ fun SearchScreen(
                                 date = LocalDate.of(year, month, dayOfMonth)
                             )
                         )
+                        keyboardController?.hide()
                     },
                     modifier = Modifier
                         .fillMaxWidth()

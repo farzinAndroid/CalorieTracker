@@ -71,7 +71,10 @@ fun TrackerOverviewScreen(
                             .fillMaxWidth()
                             .padding(horizontal = LocalSpacing.current.small),
                     ) {
-                        state.trackedFoods.forEach { food ->
+                        val filteredFoods = state.trackedFoods.filter {
+                            it.mealType == meal.mealType
+                        }
+                        filteredFoods.forEach { food ->
                             TrackedFoodItem(
                                 trackedFood = food,
                                 onDeleteClicked = {
