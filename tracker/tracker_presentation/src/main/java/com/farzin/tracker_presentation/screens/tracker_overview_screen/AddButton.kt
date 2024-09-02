@@ -18,7 +18,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.farzin.core.R
 import com.farzin.core_ui.BrightGreen
 import com.farzin.core_ui.LocalSpacing
 
@@ -48,7 +50,7 @@ fun AddButton(
 
         Icon(
             imageVector = Icons.Default.Add,
-            contentDescription = "",
+            contentDescription = stringResource(R.string.add),
             tint = color
         )
 

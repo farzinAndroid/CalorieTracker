@@ -46,6 +46,16 @@ android {
             )
         )
     }
+    testOptions {
+        packaging {
+            jniLibs {
+                useLegacyPackaging = true
+            }
+        }
+        unitTests.all {
+            it.jvmArgs("-Djdk.attach.allowAttachSelf=true")
+        }
+    }
 }
 
 dependencies {
@@ -92,7 +102,11 @@ dependencies {
     //mock
     testImplementation(libs.mockk)
     androidTestImplementation(libs.mockk.android)
+//    testImplementation("org.mockito:mockito-inline:2.7.21")
+//    androidTestImplementation("io.mockk:mockk-android-inline:1.13.12")
     testImplementation(libs.mockwebserver)
+    implementation("com.github.wseemann:FFmpegMediaMetadataRetriever-core:1.0.15")
+    implementation("com.github.wseemann:FFmpegMediaMetadataRetriever-native:1.0.15")
 
     // turbine
     implementation (libs.turbine)

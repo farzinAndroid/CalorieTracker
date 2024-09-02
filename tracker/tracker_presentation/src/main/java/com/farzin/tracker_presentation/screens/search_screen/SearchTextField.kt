@@ -21,10 +21,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.farzin.core.R
 import com.farzin.core_ui.LightGray
@@ -67,6 +67,7 @@ fun SearchTextField(
                 .padding(spacing.medium)
                 .padding(end = spacing.medium)
                 .onFocusChanged { onFocusChanged(it) }
+                .testTag("search_textfield")
         )
 
         if (shouldShowHint) {
@@ -86,7 +87,10 @@ fun SearchTextField(
             modifier = Modifier
                 .align(Alignment.CenterEnd)
         ) {
-            Icon(imageVector = Icons.Default.Search, contentDescription = "")
+            Icon(
+                imageVector = Icons.Default.Search,
+                contentDescription = stringResource(R.string.search)
+            )
         }
 
     }
