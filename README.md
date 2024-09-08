@@ -35,3 +35,11 @@ The project is divided into multiple modules to enhance modularity and reusabili
 - Mockito : For UI testing
 
 
+![1](https://github.com/user-attachments/assets/c092bfc2-82c5-4bb2-a843-500a97ba82d7)
+
+
+![2](https://github.com/user-attachments/assets/139f3a9c-64a4-4405-8bdb-4f2dfe6884de)
+
+
+
+
