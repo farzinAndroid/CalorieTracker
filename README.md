@@ -19,7 +19,7 @@ The project follows the MVVM architecture pattern, which helps in separating the
 
 
 ### Modules
-The project is divided into multiple modules to enhance modularity and reusability.
+The project is divided into multiple modules to enhance modularity and reusability.It combines both Modularization by Feature and Modularization by Layer.
 
 
 
